@@ -35,10 +35,8 @@ player_to_points = {}
 
 
 def update_point_totals():
-    for key, val in player_to_words.items():
-        for word in val:
-            player_to_points[key] = score_word(word)
-    print(player_to_points)
+  for player, words in player_to_words.items():
+    player_to_points[player] = sum(score_word(word) for word in words)
 
 
 # playing the new word
